@@ -25,7 +25,7 @@ public class Clients {
     @Setter @Getter private Integer document;
 
     @OneToMany(mappedBy = "client_id", cascade = CascadeType.ALL, orphanRemoval = true)
-    private List<InvoiceDetails> carts;
+    private List<Carts> carts;
 
     @OneToMany(mappedBy = "client_id", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Invoice> invoice;

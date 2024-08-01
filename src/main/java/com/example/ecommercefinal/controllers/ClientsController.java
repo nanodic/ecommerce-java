@@ -61,7 +61,7 @@ public class ClientsController {
     }
 
 
-    @PatchMapping("/api/v1/auth/me/{id}")
+    @PatchMapping("/me/{id}")
     public ResponseEntity<Clients> updateUser(@PathVariable Integer id, @RequestBody Clients data) {
         try {
             Optional<Clients> Clients = clientsServices.readOne(id);

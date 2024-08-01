@@ -25,7 +25,8 @@ public class Products {
     @Column
     @Setter @Getter private Double price;
 
-    @OneToMany(mappedBy = "product_id", cascade = CascadeType.ALL, orphanRemoval = true)
-    private List<Invoice> invoice;
+    @ManyToOne
+    @JoinColumn(name = "product_id")
+    private Carts product_id;
 
 }
