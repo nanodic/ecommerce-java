@@ -17,8 +17,6 @@ public class Carts {
 
     @Column
     @Setter @Getter private Integer amount;
-    @Column(insertable=false, updatable=false)
-    @Setter @Getter private Integer product_id;
     @Column
     @Setter @Getter private Double price;
     @Column
@@ -26,9 +24,10 @@ public class Carts {
 
     @ManyToOne
     @JoinColumn(name = "client_id")
-    private Clients client_id;
+    @Setter @Getter private Clients client_id;
 
-    @OneToMany(mappedBy = "product_id", cascade = CascadeType.ALL, orphanRemoval = true)
-    private List<Products> products;
+    @ManyToOne
+    @JoinColumn(name = "product_id")
+    @Setter @Getter private Products product_id;
 
 }
