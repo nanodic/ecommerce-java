@@ -13,7 +13,7 @@ public class Carts {
 
     @Id
     @GeneratedValue (strategy = GenerationType.IDENTITY)
-    @Setter @Getter private Integer cart_id;
+    @Setter @Getter private Integer Id;
 
     @Column
     @Setter @Getter private Integer amount;
@@ -23,11 +23,11 @@ public class Carts {
     @Setter @Getter private boolean delivered;
 
     @ManyToOne
-    @JoinColumn(name = "client_id")
-    @Setter @Getter private Clients client_id;
+    @JoinColumn(name = "clientId")
+    @Setter @Getter private Clients clientId;
 
     @ManyToOne
-    @JoinColumn(name = "product_id")
-    @Setter @Getter private Products product_id;
+    @JoinColumn(name = "productId")
+    @Setter @Getter private Products productId;
 
 }

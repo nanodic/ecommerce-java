@@ -22,7 +22,7 @@ public class Invoice {
     @Column
     @Setter
     @Getter
-    private Date created_at;
+    private Date createdAt;
     @Column
     @Setter
     @Getter
@@ -30,8 +30,8 @@ public class Invoice {
 
 
     @ManyToOne
-    @JoinColumn(name = "client_id")
-    private Clients client_id;
+    @JoinColumn(name = "clientId")
+    private Clients clientId;
 
 
 }

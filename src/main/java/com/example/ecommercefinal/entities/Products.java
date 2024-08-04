@@ -25,7 +25,7 @@ public class Products {
     @Column
     @Setter @Getter private Double price;
 
-    @OneToMany(mappedBy = "product_id", cascade = CascadeType.ALL, orphanRemoval = true)
+    @OneToMany(mappedBy = "productId", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Carts> carts;
 
 }

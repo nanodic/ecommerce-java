@@ -8,6 +8,7 @@ import com.example.ecommercefinal.repositories.ClientsRepository;
 import com.example.ecommercefinal.repositories.ProductsRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 
+
 import java.util.List;
 import java.util.Optional;
 
@@ -19,13 +20,13 @@ public class CartsServices {
     @Autowired
     private ClientsRepository clientsRepository;
 
-    public Carts addProductToCart(Integer clientId, Integer productId, Integer amount) {
-        Optional<Clients> clients = clientsRepository.findById(clientId);
+    public Carts addProductToCart(Integer client_Id, Integer productId, Integer amount) {
+        Optional<Clients> clients = clientsRepository.findById(client_Id);
         Optional<Products> products = productsRepository.findById(productId);
         if (clients.isPresent() & products.isPresent()) {
             Carts carts = new Carts();
-            carts.setClient_id(clients.get());
-            carts.setProduct_id(products.get());
+            carts.setClientId(clients.get());
+            carts.setProductId(products.get());
             carts.setPrice(products.get().getPrice());
             carts.setAmount(amount);
             carts.setDelivered(false);
@@ -45,14 +46,14 @@ public class CartsServices {
         }
     }
 
-    public List<Carts> cartsNoDeliveried(Integer client_id)
-    {
-        List<Carts> carts = cartsRepository.cartsNoDeliveried(client_id, false);
-        if(carts.isEmpty()){
-            throw new RuntimeException("Carrito no encontrado");
-        }else{
-            return carts;
-        }
-    }
+//    public List<Carts> findByClientIdAndDeliveredFalse(Integer client_id)
+//    {
+//        List<Carts> carts = cartsRepository.findByClientIdAndDeliveredFalse(client_id);
+//        if(carts.isEmpty()){
+//            throw new RuntimeException("Carrito no encontrado");
+//        }else{
+//            return carts;
+//        }
+//    }
 
 }

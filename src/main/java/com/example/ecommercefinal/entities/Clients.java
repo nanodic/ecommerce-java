@@ -14,7 +14,7 @@ public class Clients {
     //Id autogenerado - ClavePrimaria
     @Id
     @GeneratedValue (strategy = GenerationType.IDENTITY)
-    @Setter @Getter private Integer id;
+    @Setter @Getter private Integer Id;
 
     //Definicion de columnas de la tabla
     @Column
@@ -24,10 +24,10 @@ public class Clients {
     @Column
     @Setter @Getter private Integer document;
 
-    @OneToMany(mappedBy = "client_id", cascade = CascadeType.ALL, orphanRemoval = true)
+    @OneToMany(mappedBy = "clientId", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Carts> carts;
 
-    @OneToMany(mappedBy = "client_id", cascade = CascadeType.ALL, orphanRemoval = true)
+    @OneToMany(mappedBy = "clientId", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Invoice> invoice;
 
 }
