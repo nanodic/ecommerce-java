@@ -23,11 +23,12 @@ public class Carts {
     @Setter @Getter private boolean delivered;
 
     @ManyToOne
-    @JoinColumn(name = "clientId")
-    @Setter @Getter private Clients clientId;
+    @JoinColumn(name = "client_id")
+    @Setter @Getter private Clients client;
 
     @ManyToOne
-    @JoinColumn(name = "productId")
-    @Setter @Getter private Products productId;
+    @JoinColumn(name = "product_Id")
+    @Setter @Getter private Products products;
+
 
 }

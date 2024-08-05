@@ -30,8 +30,8 @@ public class Invoice {
 
 
     @ManyToOne
-    @JoinColumn(name = "clientId")
-    private Clients clientId;
+    @JoinColumn(name = "client_Id")
+    private Clients client;
 
 
 }
