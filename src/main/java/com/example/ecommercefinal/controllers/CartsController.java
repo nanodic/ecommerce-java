@@ -16,7 +16,7 @@ public class CartsController {
     private CartsServices cartsServices;
 
 
-    @PostMapping
+    @PostMapping("/{cltId}/{proId}/{amount}")
     public ResponseEntity<Carts> addProductToCart(@PathVariable Integer cltId, @PathVariable Integer proId, @PathVariable Integer amount)
     {
         try {
