@@ -31,7 +31,7 @@ public class Invoice {
 
     @ManyToOne
     @JoinColumn(name = "client_Id")
-    private Clients client;
+    @Setter @Getter private Clients client;
 
 
 }

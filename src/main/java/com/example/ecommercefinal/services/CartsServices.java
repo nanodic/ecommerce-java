@@ -6,7 +6,6 @@ import com.example.ecommercefinal.entities.Products;
 import com.example.ecommercefinal.repositories.CartsRepository;
 import com.example.ecommercefinal.repositories.ClientsRepository;
 import com.example.ecommercefinal.repositories.ProductsRepository;
-import jakarta.persistence.criteria.CriteriaBuilder;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -58,5 +57,18 @@ public class CartsServices {
            return carts;
        }
    }
+
+    public Optional<Carts> deleteCart(Integer id)
+    {
+        Optional<Carts> carts = cartsRepository.findById(id);
+        if(carts.isEmpty())
+        {
+          throw new RuntimeException("Carrito no encontrado");
+        }
+        else{
+            return carts;
+        }
+
+    }
 
 }
