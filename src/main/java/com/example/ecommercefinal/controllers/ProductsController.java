@@ -7,6 +7,7 @@ import io.swagger.v3.oas.annotations.media.Content;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.responses.ApiResponses;
 import io.swagger.v3.oas.annotations.tags.Tag;
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -109,9 +110,10 @@ public class ProductsController {
     @ApiResponses(value = {
             @ApiResponse(responseCode = "200", description = "Producto actualizado"),
             @ApiResponse(responseCode = "404", description = "No devuelve datos", content = @Content),
+            @ApiResponse(responseCode = "400", description = "Revise la peticion, los datos no pueden ser null en un update", content = @Content),
             @ApiResponse(responseCode = "500", description = "Error interno del servidor",content = @Content),
     })
-    public ResponseEntity<Products> UpdateProducts(@PathVariable Integer id, @RequestBody Products data) {
+    public ResponseEntity<Products> UpdateProducts(@PathVariable Integer id, @Valid @RequestBody Products data) {
         try {
             Optional<Products> Products = productsServices.readOne(id);
             if (Products.isPresent()) {

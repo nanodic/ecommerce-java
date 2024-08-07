@@ -2,6 +2,7 @@ package com.example.ecommercefinal.entities;
 
 import io.swagger.v3.oas.annotations.media.Schema;
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotNull;
 import lombok.*;
 
 import java.util.List;
@@ -23,16 +24,16 @@ public class Clients {
     //Definicion de columnas de la tabla
     @Schema (description = "Nombre de cliente", example = "NAHUEL")
     @Column
-    @Setter @Getter private String name;
+    @Setter @Getter @NotNull(message = "Code cannot be null") private String name;
     @Schema (description = "Apellido cliente", example = "DI CIOCCO")
     @Column
-    @Setter @Getter private String lastName;
+    @Setter @Getter @NotNull(message = "Code cannot be null") private String lastName;
     @Schema (description = "Nro Documento", example = "33924213")
     @Column
-    @Setter @Getter private Integer document;
+    @Setter @Getter @NotNull(message = "Code cannot be null") private Integer document;
 
     @OneToMany(mappedBy = "client", cascade = CascadeType.ALL, orphanRemoval = true)
-    @Setter @Getter private List<Carts> carts;
+    @Setter @Getter @NotNull(message = "Code cannot be null") private List<Carts> carts;
 
     @OneToMany(mappedBy = "client", cascade = CascadeType.ALL, orphanRemoval = true)
     @Setter @Getter private List<Invoice> invoice;
