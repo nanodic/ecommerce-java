@@ -58,17 +58,4 @@ public class CartsServices {
        }
    }
 
-    public Optional<Carts> deleteCart(Integer id)
-    {
-        Optional<Carts> carts = cartsRepository.findById(id);
-        if(carts.isEmpty())
-        {
-          throw new RuntimeException("Carrito no encontrado");
-        }
-        else{
-            return carts;
-        }
-
-    }
-
 }
